@@ -12,3 +12,5 @@
    1. `mkdir PATH_TO_PROJECT/auth && $_`
    2. `openssl genrsa 2024 > service.key`
    3. add service.key to .gitignore
+6. add authentication module `auth.rb` in `infrastructures` directory
+

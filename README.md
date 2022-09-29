@@ -1,24 +1,14 @@
-# README
+# Authentication using JWT in RoR
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. `bundle install` (--path vendor/bundle)
+2. add following gems to Gemfile
+   - "bcrypt"
+   - "jwt"
+3. make model
+   1. `bundle exec rails g model user name email password_digest`
+   2. `bundle exec rails db:migrate`
+4. add `has_secure_password` to User model
+5. make secret key
+   1. `mkdir PATH_TO_PROJECT/auth && $_`
+   2. `openssl genrsa 2024 > service.key`
+   3. add service.key to .gitignore

@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41508149-33c4-44b1-af79-f651caa601dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/services/user_service.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/sessions/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sessions/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructures/auth.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructures/auth.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructures/test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructures/test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/form.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/form.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/user.rb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/home/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20221001095008_create_forms.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20221001095008_create_forms.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/bar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/nao/PG/Git/rails-jwt-study",
+    "last_opened_file_path": "/Users/nao/PG/Git/rails-jwt-study/app/infrastructures",
     "nodejs_package_manager_path": "npm",
     "ruby.rails.projectView.checked": "true",
     "settings.editor.selected.configurable": "preferences.keymap",
@@ -48,12 +49,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/infrastructures" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/frontend/dist/home" />
       <recent name="$PROJECT_DIR$/frontend/dist/sessions" />
       <recent name="$PROJECT_DIR$/frontend/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/storage" />
       <recent name="$PROJECT_DIR$/frontend/dist" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -166,7 +169,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664440864243</updated>
-      <workItem from="1664440866054" duration="28575000" />
+      <workItem from="1664440866054" duration="44342000" />
     </task>
     <servers />
   </component>

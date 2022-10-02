@@ -31,4 +31,5 @@
 /config/master.key
 /vendor/bundle
 /auth
+/uploads
 .env

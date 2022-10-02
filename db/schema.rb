@@ -12,12 +12,13 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_01_095008) do
   create_table "forms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.decimal "seq", precision: 10
-    t.string "name"
+    t.bigint "user_id", null: false
+    t.decimal "seq", precision: 10, null: false
+    t.string "original_name", null: false
+    t.string "file_name", null: false
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.index ["user_id"], name: "index_forms_on_user_id"
   end
 

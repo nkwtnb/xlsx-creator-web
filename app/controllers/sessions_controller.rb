@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
   include Auth
   def new
+    token = get_authenticated_user()
+    if token.present?
+      return redirect_to root_path
+    end
   end
 
   def create

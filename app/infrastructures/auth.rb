@@ -29,10 +29,11 @@ module Auth
       decoded_token = JWT.decode(token, rsa_private, true, { algorithm: 'RS256' })
     rescue StandardError => e
       p e.message
-      return {
-        status_code: 401,
-        message: :unauthorized
-      }
+      return nil
+      # return {
+      #   status_code: 401,
+      #   message: :unauthorized
+      # }
     end
     # subからユーザーIDを取得
     user_id = decoded_token.first['sub']

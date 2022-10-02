@@ -1,21 +1,22 @@
+<% content_for(:page, "ログイン") %>
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>Sessions#new</h1>
-      <p>Find me in app/views/sessions/new.html.erb</p>
-    </div>
-    <div class="row">
-      <div class="col">
+      <div class="container d-flex justify-content-center">
         <%= form_with url: "/sign_in", method: :post do |form| %>
-          <%= form.text_field :email %>
-          <%= form.password_field :password %>
-          <%= form.submit "submit" %>
+          <div> <%= flash[:danger] %></div>
+          <div class="row mb-3">
+            <label for="exampleFormControlInput1" class="form-label">メールアドレス</label>
+            <%= form.text_field :email, class: 'form-control', :placeholder => "name@example.com"%>
+          </div>
+          <div class="row mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">パスワード</label>
+            <%= form.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="row mb-2 align-content-right">
+            <%= form.submit "ログイン", class: "btn btn-success"%>
+          </div>
         <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        test
       </div>
     </div>
   </div>

@@ -12,3 +12,54 @@
  *
 
  */
+
+body {
+    background-color: #F0F0F0;
+}
+.title-header {
+    background-color: #14592F;
+    color: white;
+    /*font-size: 26px;*/
+    /*height: 40px;*/
+}
+.title {
+    padding: 4px 4px;
+}
+.main-section {
+    background-color: white;
+}
+.data-grid {
+    border: 1px solid #ddd;
+}
+.data-grid .col {
+    border: 1px solid #ddd;
+}
+.data-grid:last-child {
+    border-top: none;
+}
+/* テーブル幅 */
+.table {
+    table-layout: fixed;
+}
+.table thead th:first-child {
+    width: 60px;
+}
+.table thead th:nth-child(2) {
+    width: 30%;
+}
+.table thead th:nth-child(3) {
+    width: 40%;
+}
+.table thead th:last-child {
+    width: 74px;
+}
+.table thead th:nth-last-child(2) {
+    width: 200px;
+}
+/* テーブル明細部 */
+.table tbody th:first-child {
+    text-align: right;
+}
+.table tbody th, .table tbody td {
+    word-break: break-all;
+}

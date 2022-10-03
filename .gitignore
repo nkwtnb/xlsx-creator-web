@@ -29,7 +29,10 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore custom files
 /vendor/bundle
 /auth
 /uploads
 .env
+/**/templates/*

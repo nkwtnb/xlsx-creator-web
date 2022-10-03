@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/rails-jwt-study.iml" filepath="$PROJECT_DIR$/.idea/rails-jwt-study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/xlsx-creator-web.iml" filepath="$PROJECT_DIR$/.idea/xlsx-creator-web.iml" />
     </modules>
   </component>
 </project>

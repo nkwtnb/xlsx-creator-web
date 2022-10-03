@@ -22,19 +22,30 @@ module UserService
     form.save!
   end
 
+  def user_service_edit
+
+  end
+
+  def user_service_delete
+
+  end
+
   private
 
   def get_next_sequence(user_id)
     form = Form
              .where(user_id: user_id)
              .order(seq: :desc)
-             .first!
+             .first
+    if form.nil?
+      return 1
+    end
     next_seq = (form.seq.to_i) + 1
     return next_seq
   end
 
   def upload_file_to_server(uploaded_file, file_name)
-    File.open(Rails.root.join('storage', 'uploads', file_name), 'w') do |file|
+    File.open(Rails.root.join('resources', 'xlsx-creator', 'templates', file_name), 'w') do |file|
       file.write(uploaded_file.read.force_encoding("utf-8"))
     end
   end

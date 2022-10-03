@@ -1,6 +1,6 @@
 <% content_for :page, "登録帳票一覧" %>
 <% content_for :page_right_content do  %>
-  <button type="button" class="btn btn-outline-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">新規登録</button>
+  <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">新規登録</button>
 <% end %>
 <div class="container">
   <table class="table">
@@ -14,32 +14,27 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>
-        <button type="button" class="btn btn-outline-danger">削除</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>
-        <button type="button" class="btn btn-outline-danger">削除</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-      <td>
-        <button type="button" class="btn btn-outline-danger">削除</button>
-      </td>
-    </tr>
+<!--      TODO 1件も存在しない時-->
+      <% @forms.each do |form| %>
+        <tr>
+          <th scope="row">
+            <%= form.seq %>
+          </th>
+          <td>
+            <%= form.original_name %>
+          </td>
+          <td>
+            <%= form.description %>
+          </td>
+          <td>
+            <%= form.updated_at %>
+          </td>
+          <td>
+            <%= button_to '削除', "/", method: :put, class: "btn btn-outline-danger", data: { turbo: false } %>
+<!--              <button type="submit" class="btn btn-outline-danger">削除</button>-->
+          </td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
   <!-- Modal -->
@@ -63,7 +58,6 @@
                 <%= form.text_field :form_description, class: 'form-control', placeholder: "例）1週間の作業報告用テンプレート" %>
               </div>
               <div class="modal-footer">
-<!--                <button type="submit" class="btn btn-success">登録</button>-->
                 <%= form.submit "登録", class: "btn btn-success"%>
               </div>
             </div>

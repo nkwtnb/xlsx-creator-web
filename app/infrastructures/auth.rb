@@ -1,8 +1,16 @@
 module Auth
+  def get_user(email, password)
+    user = User.find_by(email: email)
+    if user.nil?
+      return nil
+    end
+    return user.authenticate(password) ? user : nil
+  end
   def make_token_if_authenticated(email, password)
     p email, password
     # ユーザー取得
-    user = User.find_by(email: email)&.authenticate(password)
+    user = get_user(email, password)
+    # user = User.find_by(email: email)&.authenticate(password)
     if user == nil
       return nil
     end
@@ -16,7 +24,6 @@ module Auth
     rsa_private = OpenSSL::PKey::RSA.new(File.read(Rails.root.join('auth/service.key')))
     # JWTの作成
     token = JWT.encode(payload, rsa_private, 'RS256')
-    return token
   end
 
   def get_authenticated_user
@@ -35,7 +42,12 @@ module Auth
     # subからユーザーIDを取得
     user_id = decoded_token.first['sub']
     # user_idからユーザーを検索
-    user = User.find(user_id)
-    return user
+    User.find(user_id)
+  end
+
+  def get_authenticated_user_from_api(params)
+    email = request.headers["X-XLSX-CREATOR-Authorization-EMAIL"]
+    password = request.headers["X-XLSX-CREATOR-Authorization-PASSWORD"]
+    get_user(email, password)
   end
 end

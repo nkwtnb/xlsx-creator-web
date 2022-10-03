@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b299f02-44ad-409e-8618-18d19ec2fae6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,8 @@
     "last_opened_file_path": "/Users/nao/PG/Git/xlsx-creator-web/resources/xlsx-creator",
     "nodejs_package_manager_path": "npm",
     "ruby.rails.projectView.checked": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/Users/nao/PG/Git/xlsx-creator-web/node_modules/typescript/lib"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -157,7 +158,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664775260713</updated>
       <workItem from="1664775262399" duration="4556000" />
-      <workItem from="1664780331272" duration="14983000" />
+      <workItem from="1664780331272" duration="15895000" />
     </task>
     <servers />
   </component>

@@ -14,7 +14,7 @@ class HomeController < ApplicationController
       description = params[:form_description]
       user_service_create(uploaded_file, description)
 
-      return render action: :new, status: :created
+      return redirect_to action: :new, status: :created
     rescue => e
       p e.message
       return render json: e.message, status: :bad_request

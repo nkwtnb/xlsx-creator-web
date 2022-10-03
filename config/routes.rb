@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  # Web
   root to: "home#new"
   get "/sign_in", to: "sessions#new"
   post "/sign_in", to: "sessions#create"
   post "/", to: "home#create"
+  put "/", to: "home#download"
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # API
+  namespace :api do
+    namespace :v1 do
+      post "/form", to: "form#new"
+    end
+  end
 end

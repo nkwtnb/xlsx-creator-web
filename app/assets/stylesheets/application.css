@@ -51,10 +51,10 @@ body {
     width: 40%;
 }
 .table thead th:last-child {
-    width: 74px;
+    width: 160px;
 }
 .table thead th:nth-last-child(2) {
-    width: 200px;
+    width: 220px;
 }
 /* テーブル明細部 */
 .table tbody th:first-child {

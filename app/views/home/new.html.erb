@@ -1,6 +1,6 @@
 <% content_for :page, "登録帳票一覧" %>
 <% content_for :page_right_content do  %>
-  <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">新規登録</button>
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">新規登録</button>
 <% end %>
 <div class="container">
   <table class="table">
@@ -30,8 +30,17 @@
             <%= form.updated_at %>
           </td>
           <td>
-            <%= button_to '削除', "/", method: :put, class: "btn btn-outline-danger", data: { turbo: false } %>
-<!--              <button type="submit" class="btn btn-outline-danger">削除</button>-->
+            <div class="d-flex justify-content-around">
+              <%= form_with url: "/", method: :put do |f| %>
+                <%= f.hidden_field :seq, value: form.seq %>
+                <%= f.submit "修正", class: "btn btn-primary"%>
+                <%#= button_to '修正', "/", method: :put, class: "btn btn-outline-primary" , data: { turbo: false, "bs-toggle": "modal", "bs-target": "#exampleModal" } %>
+              <% end %>
+              <%= form_with url: "/", method: :delete do |f| %>
+                <%= f.hidden_field :seq, value: form.seq %>
+                <%= f.submit "削除", class: "btn btn-danger"%>
+              <% end %>
+            </div>
           </td>
         </tr>
       <% end %>
@@ -55,6 +64,9 @@
               </div>
               <div class="row mb-3">
                 <label for="form_description" class="form-label">帳票テンプレートの説明</label>
+                <% @forms.each do |form| %>
+                  <%= form.description %>
+                <% end %>
                 <%= form.text_field :form_description, class: 'form-control', placeholder: "例）1週間の作業報告用テンプレート" %>
               </div>
               <div class="modal-footer">

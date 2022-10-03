@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get "/sign_in", to: "sessions#new"
   post "/sign_in", to: "sessions#create"
   post "/", to: "home#create"
-  put "/", to: "home#download"
+  put "/", to: "home#put"
+  delete "/", to: "home#delete"
+  # put "/", to: "home#download"
 
   # API
   namespace :api do

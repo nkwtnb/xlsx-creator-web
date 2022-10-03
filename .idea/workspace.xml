@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b299f02-44ad-409e-8618-18d19ec2fae6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/xlsx-creator-web.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/initializers/cors.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/xlsx-creator/templates/.keep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/xlsx-creator/xlsx-creator.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rails-jwt-study.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/form_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/form_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructures/auth.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructures/auth.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/user_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user_service.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +157,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664775260713</updated>
       <workItem from="1664775262399" duration="4556000" />
-      <workItem from="1664780331272" duration="13045000" />
+      <workItem from="1664780331272" duration="14983000" />
     </task>
     <servers />
   </component>

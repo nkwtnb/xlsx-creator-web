@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   post "/", to: "home#create"
   put "/", to: "home#put"
   delete "/", to: "home#delete"
+  scope :form do
+    post :create, to: "form#create"
+    post :update, to: "form#update"
+  end
+
   # put "/", to: "home#download"
 
   # API

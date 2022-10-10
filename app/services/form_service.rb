@@ -1,6 +1,6 @@
-module UserService
+module FormService
   include Auth
-  def user_service_create(uploaded_file, description)
+  def self.invoke(uploaded_file, description)
     # ユーザー情報取得
     user = get_authenticated_user
     if user.nil?
@@ -20,14 +20,6 @@ module UserService
       description: description
     )
     form.save!
-  end
-
-  def user_service_edit
-
-  end
-
-  def user_service_delete
-
   end
 
   private

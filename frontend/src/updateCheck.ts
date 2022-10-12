@@ -1,6 +1,8 @@
 import {toggleFormEnabled} from "./entry";
-
-const updateForm = <HTMLInputElement>document.getElementById("update-form");
-updateForm.addEventListener("change", (e: any) => {
-  toggleFormEnabled(e.target.checked)
-});
+window.addEventListener("load", (e) => {
+  const updateCheck = <HTMLInputElement>document.getElementById("update-form");
+  updateCheck.addEventListener("change", (e: any) => {
+    toggleFormEnabled(e.target.checked)
+  });
+  console.log("updateCheck");
+})

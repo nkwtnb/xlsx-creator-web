@@ -12,9 +12,74 @@
 //   });
 // })();
 import "./modal";
-import "./bar.css"
+import "./registerButton";
+import "./updateButton";
+import "./updateCheck";
+import "./bar.css";
+import "./deleteButton";
+import {setSelectedIndexText} from "./deleteButton";
 
-console.log("javascript loaded");
+type UPDATE_TYPE = "REGISTER" | "UPDATE"
+
+console.log("Hello, entry.ts");
+
+let selectedIndex = -1;
+export const getSelectedIndex = (): number => {
+  return selectedIndex;
+}
+window.addEventListener("load", (e) => {
+  console.log("getselected index");
+  const buttons = Array.from(document.querySelectorAll(".delete-button"));
+  buttons.forEach((element) => {
+    element.addEventListener("click", (e) => {
+      const selected = <HTMLInputElement>(<HTMLInputElement>e.target)!.parentNode!.querySelector("#seq")
+      selectedIndex = Number(selected.value);
+      setSelectedIndexText(selectedIndex.toString());
+    });
+  });
+});
+
+export const getParam = () => {
+  const description = (<HTMLInputElement>document.getElementById("form_description")).value;
+  const form = <HTMLFormElement>document.getElementById("form_file");
+  return {
+    description,
+    form
+  };
+}
+
+export const getToken = () => {
+  const token = (<HTMLMetaElement>document.querySelector("head meta[name=\"csrf-token\"]")!).content;
+  return token;
+}
+
+export const submit = async (type: UPDATE_TYPE, token: string, description: string, form: Blob, index?: number) => {
+  const postData = new FormData();
+  console.log("submitUpdate");
+  postData.append("description", description);
+  if (index !== undefined) {
+    postData.append("selected_seq", index.toString());
+  }
+  if (form) {
+    postData.append("form_file", form);
+  }
+  const URL = type === "REGISTER" ? "/form/create" : "/form/update";
+  fetch(URL, {
+    headers: {
+      'X-CSRF-Token' : token
+    },
+    method: "POST",
+    body: postData
+  })
+  .then(async res => {
+    if (res.status === 200) {
+      location.reload();
+      return;
+    }
+    console.log(res.status);
+    console.log(await res.json());
+  });
+}
 
 const validate = (form: HTMLFormElement) => {
   console.log(form);
@@ -23,44 +88,14 @@ const validate = (form: HTMLFormElement) => {
   }
   return true;
 }
-
-const submitUpdate = async (index: number, token: string, description: string, form: Blob) => {
-  const postData = new FormData();
-  console.log("submitUpdate");
-  postData.append("description", description);
-  postData.append("selected_seq", index.toString());
-  if (form) {
-    postData.append("form_file", form);
-  }
-  fetch("/form/update", {
-    headers: {
-      'X-CSRF-Token' : token
-    },
-    method: "POST",
-    body: postData
-  })
-  .then(async res => {
-    location.reload();
-  });
-}
-// const clearValues = () => {
-//   const updateForm = <HTMLInputElement>document.getElementById("update-form");
-//   updateForm.checked = false;
-//   const form = <HTMLFormElement>document.getElementById("form_file");
-//   form.value = "";
-//   form.disabled = true;
-//   const description = <HTMLInputElement>document.getElementById("form_description");
-//   description.value = "";
-// }
-const toggleFormEnabled = (isUpdate: boolean) => {
+export const toggleFormEnabled = (isUpdate: boolean) => {
   const elements: HTMLInputElement[] = Array.from(document.querySelectorAll(".show-only-update-form"));
   elements.forEach(element => {
     element.disabled = !isUpdate
   });
 }
-type UPDATE_TYPE = "REGISTER" | "UPDATE"
-const toggleStatus = (type: UPDATE_TYPE) => {
-  console.log(type);
+export const toggleStatus = (type: UPDATE_TYPE) => {
+  console.log("toggle");
   const showOnlyRegisterElements = document.querySelectorAll(".show-only-register");
   const showOnlyUpdateElements = Array.from(document.querySelectorAll(".show-only-update"));
 
@@ -83,49 +118,3 @@ const toggleStatus = (type: UPDATE_TYPE) => {
     });
   }
 }
-
-  window.addEventListener("load", (e) => {
-    const register = <HTMLInputElement>document.getElementById("register");
-    register.addEventListener("click", (e) => {
-      toggleStatus("REGISTER");
-    });
-    const updateForm = <HTMLInputElement>document.getElementById("update-form");
-    updateForm.addEventListener("change", (e: any) => {
-      toggleFormEnabled(e.target.checked)
-    });
-    register.addEventListener("click", (e) => {
-      toggleStatus("REGISTER");
-    });
-    // const myModalEl = <HTMLDivElement>document.getElementById('exampleModal')
-    // myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    //   clearValues();
-    // })
-    const buttons = Array.from(document.querySelectorAll(".edit-form"));
-    let clickedIndex = 0;
-    buttons.forEach((element) => {
-      element.addEventListener("click", async (e) => {
-        const token = <HTMLMetaElement>document.querySelectorAll("meta[name=\"csrf-token\"]")[0];
-        const _token = (<HTMLInputElement>e.target)!.parentNode!.querySelectorAll("input[name=\"authenticity_token\"]");
-        console.log(_token);
-        console.log(token.content);
-        toggleStatus("UPDATE");
-        console.log(e.target);
-        // clickedIndex = (buttons.findIndex(button => button === e.target) + 1);
-        const seq = (<HTMLInputElement>document.getElementById("selected_seq"));
-        const selected = <HTMLInputElement>(<HTMLInputElement>e.target)!.parentNode!.querySelector("#seq")
-        clickedIndex = Number(selected.value);
-      });
-    });
-    const submitUpdateButton = <HTMLInputElement>document.getElementById("submit-update");
-    submitUpdateButton.addEventListener("click", async (e) => {
-      const token = (<HTMLMetaElement>document.querySelector("head meta[name=\"csrf-token\"]")!).content;
-      // const token = document.querySelectorAll("form.modal-form input[name=\"authenticity_token\"]")[0];
-      // const token = (<HTMLInputElement>document.querySelectorAll(".modal_form input[name=\"authenticity_token\"]")[0]).value
-      const description = (<HTMLInputElement>document.getElementById("form_description")).value;
-      const form = <HTMLFormElement>document.getElementById("form_file");
-      // if (!validate(form)) {
-      //   return;
-      // }
-      await submitUpdate(clickedIndex, token, description, form.files[0])
-    });
-  });

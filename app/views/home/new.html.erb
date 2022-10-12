@@ -1,12 +1,12 @@
 <% content_for :page, "登録帳票一覧" %>
 <% content_for :page_right_content do  %>
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">新規登録</button>
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="register">登録</button>
 <% end %>
 <div class="container">
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">帳票ID</th>
+      <th scope="col">ID</th>
       <th scope="col">帳票名称</th>
       <th scope="col">説明</th>
       <th scope="col">最終更新日時</th>
@@ -31,14 +31,10 @@
           </td>
           <td>
             <div class="d-flex justify-content-around">
-              <%= form_with url: "/", method: :put do |f| %>
-                <%= f.hidden_field :seq, value: form.seq %>
-                <%= f.submit "修正", class: "btn btn-primary"%>
-                <%#= button_to '修正', "/", method: :put, class: "btn btn-outline-primary" , data: { turbo: false, "bs-toggle": "modal", "bs-target": "#exampleModal" } %>
-              <% end %>
               <%= form_with url: "/", method: :delete do |f| %>
                 <%= f.hidden_field :seq, value: form.seq %>
-                <%= f.submit "削除", class: "btn btn-danger"%>
+                <%= f.button "修正", class: "edit-form btn btn-primary", type: "button", data: {"bs-toggle": "modal", "bs-target": "#exampleModal"}%>
+                <%= f.button "削除", type: "button", class: "delete-button btn btn-danger", data: {"bs-toggle": "modal", "bs-target": "#delete-modal"} %>
               <% end %>
             </div>
           </td>
@@ -51,29 +47,52 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">帳票テンプレート新規登録</h5>
+          <h5 class="modal-title" id="exampleModalLabel">帳票テンプレート登録</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="container">
-          <%= form_with url: "/", method: :post do |form| %>
+          <%= form_with method: :post, url: "form/create", class: "modal_form" do |form| %>
+          <%#= form_with method: :post, action: "/form/create", class: "modal_form" do |form| %>
             <div class="modal-body">
               <div> <%= flash[:danger] %></div>
               <div class="row mb-3">
-                <label for="formFile" class="form-label">登録する帳票テンプレート</label>
-                <%= form.file_field :form_file, class: "form-control", accept: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" %>
+                <span>
+                  <label for="formFile" class="form-label">帳票テンプレート</label>
+                  <span class="ms-2 show-only-update d-none">
+                    <%= label_tag :receive_news, '更新する' %>
+                    <%= check_box_tag :receive_news, '0', false, {id: "update-form"} %>
+                  </span>
+                </span>
+                <%= form.file_field :form_file, disabled: true, class: "form-control show-only-update-form", accept: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" %>
+                <%= form.hidden_field :selected_seq, value: "" %>
               </div>
               <div class="row mb-3">
                 <label for="form_description" class="form-label">帳票テンプレートの説明</label>
-                <% @forms.each do |form| %>
-                  <%= form.description %>
-                <% end %>
                 <%= form.text_field :form_description, class: 'form-control', placeholder: "例）1週間の作業報告用テンプレート" %>
               </div>
               <div class="modal-footer">
-                <%= form.submit "登録", class: "btn btn-success"%>
+                <%= form.button "登録", type: "button", id: "submit-register", class: "show-only-register btn btn-success"%>
+                <%= form.button "更新", type: "button", id: "submit-update", class: "show-only-update d-none btn btn-primary"%>
               </div>
             </div>
           <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Delete Modal -->
+  <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="delete-modal-label">帳票テンプレート削除</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ID：<span id="delete-form-id"></span> のテンプレートを本当に削除しますか？
+        </div>
+        <div class="modal-footer">
+          <%= button_tag "削除", type: "button", id: "submit-delete", class: "btn btn-danger"%>
         </div>
       </div>
     </div>

@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("TEST from bar")})();
+console.log("TEST from foo");

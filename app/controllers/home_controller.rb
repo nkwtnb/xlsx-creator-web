@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   include Auth
-  include UserService
+  include FormService
   def new
-    user = get_authenticated_user()
+    user = get_authenticated_user
     if user.nil?
       return redirect_to sign_in_path
     end
@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     begin
       uploaded_file = params[:form_file]
       description = params[:form_description]
-      user_service_create(uploaded_file, description)
+      form_create_service(uploaded_file, description)
 
       return redirect_to action: :new, status: :created
     rescue => e
@@ -21,31 +21,31 @@ class HomeController < ApplicationController
     end
   end
 
-  def put
-    # user = get_authenticated_user()
-    # if user.nil?
-    #   return redirect_to sign_in_path
-    # end
-    # puts "This is put"
-    # @forms = Form.where(user_id: user.id).order(seq: :asc)
-    # puts @forms
-    # @update_form = Form.where(user_id: user.id, seq: 1).first
-    # puts @update_form
-    # render action: :new
-  end
-
-  def delete
-    user = get_authenticated_user()
+  def get_form_info
+    user = get_authenticated_user
     if user.nil?
       return redirect_to sign_in_path
     end
-    form = Form.where(user_id: user.id, seq: params[:seq]).first
-    if form.nil?
-      # TODO 動作確認
-      return render json: {message: "存在しない"}, status: :bad_request
+    @registered_form = Form.where(user_id: user.id, seq: params[:seq]).first
+    render json: {
+      value: {
+        description: @registered_form.description,
+        originalName: @registered_form.original_name,
+      }
+    }
+  end
+  def put
+    user = get_authenticated_user
+    if user.nil?
+      return redirect_to sign_in_path
     end
-    form.destroy
-    return redirect_to action: :new
+    begin
+      form_update_service(params[:form_file], params[:description], params[:selected_seq])
+      return render action: :new, status: :ok
+    rescue => e
+      p e.message
+      return render json: e.message, status: :bad_request
+    end
   end
 
   def download

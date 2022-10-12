@@ -8,8 +8,8 @@ module.exports = {
         })
     ],
     entry: {
-        "home/index": './frontend/src/foo.js',
-        "sessions/index": './frontend/src/bar.ts'
+        "home/index": './frontend/src/entry.ts',
+        "sessions/index": './frontend/src/foo.js',
     },
     output: {
         path: path.resolve(__dirname, "app", "assets","javascripts"),
@@ -18,8 +18,20 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts$/,
-                use: 'ts-loader'
+                test: /\.tsx?$/,
+                use: [
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            presets: [
+                                "@babel/preset-env",
+                                "@babel/preset-react",
+                                "@babel/preset-typescript",
+
+                            ]
+                        }
+                    }
+                ]
             },
             {
                 test: /\.css$/i,
@@ -29,7 +41,10 @@ module.exports = {
     },
     resolve: {
         extensions: [
-            '.ts', '.js'
+            '.ts',
+            '.tsx',
+            '.js',
+            '.jsx',
         ]
     }
 };

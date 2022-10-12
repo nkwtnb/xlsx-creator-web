@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   scope :form do
     post :create, to: "form#create"
     post :update, to: "form#update"
+    delete :delete, to: "form#delete"
   end
 
   # put "/", to: "home#download"

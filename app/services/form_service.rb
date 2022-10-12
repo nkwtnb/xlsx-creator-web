@@ -1,14 +1,18 @@
 module FormService
   include Auth
-  def self.invoke(uploaded_file, description)
+  include DomainFormService
+  def form_create_service(uploaded_file, description)
     # ユーザー情報取得
     user = get_authenticated_user
     if user.nil?
       raise StandardError.new("認証されていません。")
     end
+    if uploaded_file.nil?
+      raise StandardError.new("アップロードするファイルを選択してください。")
+    end
+    puts description
     # ファイルアップロード
-    file_name = SecureRandom.uuid + ".xlsx"
-    upload_file_to_server(uploaded_file, file_name)
+    file_name = upload_file_to_server(uploaded_file)
     # シーケンス採番
     next_seq = get_next_sequence(user.id)
     # DB登録
@@ -19,6 +23,19 @@ module FormService
       seq: next_seq,
       description: description
     )
+    form.save!
+  end
+
+  def form_update_service(uploaded_file, description, seq)
+    # ユーザー情報取得
+    user = get_authenticated_user
+    if user.nil?
+      raise StandardError.new("認証されていません。")
+    end
+    # ファイルアップロード
+    #TODO ファイル更新チェックのバリデート
+    form = Form.where(user_id: user.id, seq: seq).first
+    form.update(uploaded_file, description, seq)
     form.save!
   end
 
@@ -34,11 +51,5 @@ module FormService
     end
     next_seq = (form.seq.to_i) + 1
     return next_seq
-  end
-
-  def upload_file_to_server(uploaded_file, file_name)
-    File.open(Rails.root.join('resources', 'xlsx-creator', 'templates', file_name), 'w') do |file|
-      file.write(uploaded_file.read.force_encoding("utf-8"))
-    end
   end
 end

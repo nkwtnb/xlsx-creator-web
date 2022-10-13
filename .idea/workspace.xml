@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b299f02-44ad-409e-8618-18d19ec2fae6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/deleteButton.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/javascripts/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/sessions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/sessions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/form_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/form_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/domain_form_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/domain_form_service.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/form.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/form.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/form_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/form_service.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/home/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Hello.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Hello.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/entry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entry.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/modal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/registerButton.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/registerButton.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/updateButton.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/updateButton.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/updateCheck.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/updateCheck.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +170,7 @@
       <updated>1664775260713</updated>
       <workItem from="1664775262399" duration="4556000" />
       <workItem from="1664780331272" duration="38918000" />
-      <workItem from="1665306462032" duration="42556000" />
+      <workItem from="1665306462032" duration="43954000" />
     </task>
     <servers />
   </component>

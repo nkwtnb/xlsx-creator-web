@@ -18,6 +18,7 @@ import "./updateCheck";
 import "./bar.css";
 import "./deleteButton";
 import {setSelectedIndexText} from "./deleteButton";
+import {clearErrorMessage, setErrorMessage} from "./modal";
 
 type UPDATE_TYPE = "REGISTER" | "UPDATE"
 
@@ -54,6 +55,7 @@ export const getToken = () => {
 }
 
 export const submit = async (type: UPDATE_TYPE, token: string, description: string, form: Blob, index?: number) => {
+  clearErrorMessage();
   const postData = new FormData();
   console.log("submitUpdate");
   postData.append("description", description);
@@ -75,9 +77,10 @@ export const submit = async (type: UPDATE_TYPE, token: string, description: stri
     if (res.status === 200) {
       location.reload();
       return;
+    } else {
+      const resp = await res.json();
+      setErrorMessage(resp.message);
     }
-    console.log(res.status);
-    console.log(await res.json());
   });
 }
 

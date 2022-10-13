@@ -54,7 +54,7 @@
           <%= form_with method: :post, url: "form/create", class: "modal_form" do |form| %>
           <%#= form_with method: :post, action: "/form/create", class: "modal_form" do |form| %>
             <div class="modal-body">
-              <div> <%= flash[:danger] %></div>
+              <div id="error-message" class="d-none alert alert-danger" role="alert"></div>
               <div class="row mb-3">
                 <span>
                   <label for="formFile" class="form-label">帳票テンプレート</label>

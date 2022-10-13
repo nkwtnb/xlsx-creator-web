@@ -23,7 +23,24 @@ body {
     /*height: 40px;*/
 }
 .title {
-    padding: 4px 4px;
+    padding: 4px 0px;
+}
+.menu {
+    display: flex;
+    margin: 0px;
+    list-style: none;
+}
+.menu li {
+    margin: 8px;
+}
+.menu-text, .menu-text:hover {
+    color: white;
+    text-decoration: none;
+}
+.nav-button {
+    color: white;
+    border: none;
+    background-color: transparent;
 }
 .main-section {
     background-color: white;

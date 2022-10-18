@@ -3,10 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="8b299f02-44ad-409e-8618-18d19ec2fae6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/javascripts/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/form_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/form_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/domain_form_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/domain_form_service.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructures/auth.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructures/auth.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/form.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/form.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/form_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/form_service.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locales/ja.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/ja.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/entry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/modal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/updateButton.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/updateButton.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/usage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/usage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,22 +53,30 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/nao/PG/Git/xlsx-creator-web/frontend/src",
+    "last_opened_file_path": "/Users/nao/PG/Git/xlsx-creator-web/config/locales",
     "nodejs_package_manager_path": "npm",
     "ruby.rails.projectView.checked": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "vcs.Git",
     "ts.external.directory.path": "/Users/nao/PG/Git/xlsx-creator-web/node_modules/typescript/lib"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JavaScript"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config/locales" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app/views/terms" />
       <recent name="$PROJECT_DIR$/frontend/src" />
       <recent name="$PROJECT_DIR$/app/services" />
-      <recent name="$PROJECT_DIR$/resources/xlsx-creator" />
-      <recent name="$PROJECT_DIR$/resources/xlsx-creator/templates" />
-      <recent name="$PROJECT_DIR$/resources/xlsx-export/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/domain/ValueObjects" />
+      <recent name="$PROJECT_DIR$/app/domain/models" />
+      <recent name="$PROJECT_DIR$/app/models" />
       <recent name="$PROJECT_DIR$/app/controllers" />
       <recent name="$PROJECT_DIR$/resources/xlsx-export" />
     </key>
@@ -170,7 +191,7 @@
       <updated>1664775260713</updated>
       <workItem from="1664775262399" duration="4556000" />
       <workItem from="1664780331272" duration="38918000" />
-      <workItem from="1665306462032" duration="43954000" />
+      <workItem from="1665306462032" duration="90481000" />
     </task>
     <servers />
   </component>

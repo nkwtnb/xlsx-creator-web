@@ -16,12 +16,13 @@ class FormController < ApplicationController
   end
 
   def update
-    user = get_authenticated_user
-    if user.nil?
-      return redirect_to sign_in_path
-    end
     begin
-      form_update_service(params[:form_file], params[:description], params[:selected_seq])
+      puts params
+      uploaded_file = params[:form_file]
+      description = params[:description]
+      selected_seq = params[:selected_seq]
+      is_update_form = params[:is_update_form]
+      form_update_service(uploaded_file, description, selected_seq, is_update_form)
       return head :ok
     rescue => e
       p e.message

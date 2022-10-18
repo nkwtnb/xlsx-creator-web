@@ -20,18 +20,22 @@
     <header class="container-fluid title-header">
       <div class="container d-flex">
         <div class="title">
-          <h1>XLSX Creator</h1>
+          <h1><a class="text-none-decorated" href="/">XLSX Creator</a></h1>
         </div>
         <nav class="d-flex flex-grow-1 justify-content-end align-items-center">
           <ul class="menu">
-            <li><a href="#" class="menu-text">使い方</a></li>
-            <li><a href="#" class="menu-text">利用規約</a></li>
+            <li><a href="/usage" class="text-none-decorated">利用方法</a></li>
+            <li><a href="/terms" class="text-none-decorated">利用規約</a></li>
+            <%=  %>
             <li>
               <div class="dropdown">
                 <button class="nav-button dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">test@example.com</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <li><a class="dropdown-item" type="button">ユーザー情報変更</a></li>
-                  <li><a class="dropdown-item" type="button">ログアウト</a></li>
+                  <li><a href="/user/edit" class="dropdown-item" type="button">ユーザー情報変更</a></li>
+                  <li>
+                    <form action="/sign_out" method="post">
+                      <button class="dropdown-item">ログアウト</button>
+                    </form>
                 </ul>
               </div>
             </li>

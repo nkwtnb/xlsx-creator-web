@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: "home#new"
   get "/sign_in", to: "sessions#new"
   post "/sign_in", to: "sessions#create"
-  post "/", to: "home#create"
-  put "/", to: "home#put"
-  delete "/", to: "home#delete"
+  post "/sign_out", to: "sessions#delete"
+  get 'usage', to: "usage#new"
+  get 'terms', to: "terms#new"
   scope :form do
     post :create, to: "form#create"
     post :update, to: "form#update"

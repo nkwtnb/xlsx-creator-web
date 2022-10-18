@@ -33,9 +33,12 @@ body {
 .menu li {
     margin: 8px;
 }
-.menu-text, .menu-text:hover {
+.text-none-decorated, .text-none-decorated:hover {
     color: white;
     text-decoration: none;
+}
+#contents {
+    font-size: 18px;
 }
 .nav-button {
     color: white;

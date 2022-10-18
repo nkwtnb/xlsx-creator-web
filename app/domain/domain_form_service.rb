@@ -1,9 +1,9 @@
 module DomainFormService
-  def upload_file_to_server(uploaded_file)
-    file_name = SecureRandom.uuid + ".xlsx"
-    File.open(Rails.root.join('resources', 'xlsx-creator', 'templates', file_name), 'w') do |file|
-      file.write(uploaded_file.read.force_encoding("utf-8"))
+  FILE_COUNT_LIMIT = 2
+  def is_form_too_many(user_id)
+    form = Form.where(user_id: user_id)
+    if form.size >= FILE_COUNT_LIMIT
+      raise StandardError.new("ファイルは #{FILE_COUNT_LIMIT} 件まで登録可能です。")
     end
-    return file_name
   end
 end

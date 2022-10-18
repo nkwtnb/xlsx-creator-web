@@ -46,8 +46,8 @@ module Auth
   end
 
   def get_authenticated_user_from_api(params)
-    email = request.headers["X-XLSX-CREATOR-Authorization-EMAIL"]
-    password = request.headers["X-XLSX-CREATOR-Authorization-PASSWORD"]
+    email = request.headers["X-XLSX-CREATOR-EMAIL"]
+    password = request.headers["X-XLSX-CREATOR-PASSWORD"]
     get_user(email, password)
   end
 end

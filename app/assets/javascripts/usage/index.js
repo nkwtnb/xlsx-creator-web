@@ -1,0 +1,1 @@
+window.addEventListener("load",(function(n){var e=document.getElementById("contents");console.log(e)}));

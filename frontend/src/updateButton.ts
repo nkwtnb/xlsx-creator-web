@@ -16,6 +16,6 @@ window.addEventListener("load", (e) => {
   submitUpdateButton.addEventListener("click", async (e) => {
     const token = getToken();
     const param = getParam();
-    await submit("UPDATE", token, param.description, param.form.files[0], clickedIndex)
+    await submit("UPDATE", token, param.description, param.form.files[0], param.updateForm, clickedIndex)
   });
 })

@@ -41,11 +41,13 @@ window.addEventListener("load", (e) => {
 });
 
 export const getParam = () => {
+  const updateForm = (<HTMLInputElement>document.getElementById("update-form")).checked;
   const description = (<HTMLInputElement>document.getElementById("form_description")).value;
   const form = <HTMLFormElement>document.getElementById("form_file");
   return {
     description,
-    form
+    form,
+    updateForm,
   };
 }
 
@@ -54,16 +56,18 @@ export const getToken = () => {
   return token;
 }
 
-export const submit = async (type: UPDATE_TYPE, token: string, description: string, form: Blob, index?: number) => {
+export const submit = async (type: UPDATE_TYPE, token: string, description: string, form: Blob, isUpdateForm?: boolean, index?: number) => {
   clearErrorMessage();
   const postData = new FormData();
-  console.log("submitUpdate");
   postData.append("description", description);
   if (index !== undefined) {
     postData.append("selected_seq", index.toString());
   }
   if (form) {
     postData.append("form_file", form);
+  }
+  if (type === "UPDATE" && isUpdateForm !== undefined) {
+    postData.append("is_update_form", isUpdateForm.toString())
   }
   const URL = type === "REGISTER" ? "/form/create" : "/form/update";
   fetch(URL, {

@@ -33,9 +33,14 @@ ja:
   activerecord:
     models:
       form: フォーム
+      user: ユーザー
     attributes:
       form:
         file: 添付ファイル
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
     errors:
       models:
         form:

@@ -8,7 +8,8 @@ module.exports = {
         })
     ],
     entry: {
-        "usage/index": "/frontend/src/usage.ts",
+        "common/index": "./frontend/src/common/index.ts",
+        "usage/index": "./frontend/src/usage.ts",
         "home/index": './frontend/src/entry.ts',
         "sessions/index": './frontend/src/foo.js',
     },

@@ -1,28 +1,29 @@
-<% content_for(:page, "ログイン") %>
+<% content_for(:page, "ユーザー新規登録") %>
 <div class="container">
   <div class="row">
     <div class="col">
       <div class="container d-flex justify-content-center">
-        <%= form_with url: "/sign_in", method: :post do |form| %>
+        <%= form_with url: "/sign_up", method: :post do |form| %>
           <% flash.each do |message_type, message| %>
             　　<div class="alert alert-<%= message_type %>"><%= message %></div>
           <% end %>
           <div class="row mb-3">
             <label for="exampleFormControlInput1" class="form-label">メールアドレス</label>
-            <%= form.text_field :email, class: 'form-control' %>
+            <%= form.text_field :email, class: 'form-control'%>
           </div>
           <div class="row mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">パスワード</label>
             <%= form.password_field :password, class: 'form-control' %>
           </div>
-          <div class="row mb-3 align-content-right">
-            <%= form.submit "ログイン", class: "btn btn-success"%>
+          <div class="row mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">パスワード（確認）</label>
+            <%= form.password_field :password_confirmation, class: 'form-control' %>
           </div>
           <div class="row mb-3 align-content-right">
-            <%= link_to "新規登録はこちら", sign_up_path, class: 'btn btn-outline-success' %>
+            <%= form.submit "新規登録", class: "btn btn-success"%>
           </div>
-          <div class="row mb-2 align-content-center text-center">
-            <a href="/password_resets/new">パスワードをお忘れですか？</a>
+          <div class="row mb-3 align-content-right">
+            <%= link_to "すでに登録済みの方はこちら", sign_in_path, class: 'btn btn-outline-success' %>
           </div>
         <% end %>
       </div>

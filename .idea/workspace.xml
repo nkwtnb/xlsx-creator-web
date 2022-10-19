@@ -2,8 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b299f02-44ad-409e-8618-18d19ec2fae6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/controllers/sign_up_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/sign_in_service.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/mail/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/password_mailer/reset_password_email.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/sign_up/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/xlsx-creator-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/xlsx-creator-web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructures/auth.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructures/auth.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locales/ja.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/ja.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20220928072231_create_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20220928072231_create_users.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/nao/PG/Git/xlsx-creator-web/config/locales",
+    "last_opened_file_path": "/Users/nao/PG/Git/xlsx-creator-web/app/views/mail",
     "nodejs_package_manager_path": "npm",
     "ruby.rails.projectView.checked": "true",
     "settings.editor.selected.configurable": "vcs.Git",
@@ -51,18 +73,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/mail" />
+      <recent name="$PROJECT_DIR$/app/controllers" />
+      <recent name="$PROJECT_DIR$/app/views/sessions" />
       <recent name="$PROJECT_DIR$/config/locales" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/app/views/terms" />
-      <recent name="$PROJECT_DIR$/frontend/src" />
-      <recent name="$PROJECT_DIR$/app/services" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/sign_up" />
+      <recent name="$PROJECT_DIR$/app/views/index" />
       <recent name="$PROJECT_DIR$/app/domain/ValueObjects" />
       <recent name="$PROJECT_DIR$/app/domain/models" />
       <recent name="$PROJECT_DIR$/app/models" />
-      <recent name="$PROJECT_DIR$/app/controllers" />
-      <recent name="$PROJECT_DIR$/resources/xlsx-export" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: xlsx-creator-web">
@@ -175,7 +197,7 @@
       <updated>1664775260713</updated>
       <workItem from="1664775262399" duration="4556000" />
       <workItem from="1664780331272" duration="38918000" />
-      <workItem from="1665306462032" duration="92473000" />
+      <workItem from="1665306462032" duration="117961000" />
     </task>
     <servers />
   </component>

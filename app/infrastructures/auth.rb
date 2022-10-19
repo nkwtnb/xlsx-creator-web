@@ -1,16 +1,7 @@
 module Auth
-  def get_user(email, password)
-    user = User.find_by(email: email)
-    if user.nil?
-      return nil
-    end
-    return user.authenticate(password) ? user : nil
-  end
   def make_token_if_authenticated(email, password)
-    p email, password
     # ユーザー取得
-    user = get_user(email, password)
-    # user = User.find_by(email: email)&.authenticate(password)
+    user = login(email, password)
     if user == nil
       return nil
     end
@@ -42,12 +33,14 @@ module Auth
     # subからユーザーIDを取得
     user_id = decoded_token.first['sub']
     # user_idからユーザーを検索
+    #TODO user_idで取得できなかった場合
     User.find(user_id)
   end
 
   def get_authenticated_user_from_api(params)
     email = request.headers["X-XLSX-CREATOR-EMAIL"]
     password = request.headers["X-XLSX-CREATOR-PASSWORD"]
-    get_user(email, password)
+    login(email, password)
+    # get_user(email, password)
   end
 end

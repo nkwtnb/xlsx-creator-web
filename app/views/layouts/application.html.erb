@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <%= javascript_include_tag "common/index.js", 'data-turbo-track': 'reload'%>
     <% if resource_exists("javascripts") %>
       <%= javascript_include_tag "#{controller_name}/index.js", 'data-turbo-track': 'reload'%>
     <% end %>
@@ -26,17 +27,27 @@
           <ul class="menu">
             <li><a href="/usage" class="text-none-decorated">利用方法</a></li>
             <li><a href="/terms" class="text-none-decorated">利用規約</a></li>
-            <%=  %>
             <li>
               <div class="dropdown">
-                <button class="nav-button dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">test@example.com</button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <li><a href="/user/edit" class="dropdown-item" type="button">ユーザー情報変更</a></li>
-                  <li>
-                    <form action="/sign_out" method="post">
-                      <button class="dropdown-item">ログアウト</button>
-                    </form>
-                </ul>
+                <% login_user = get_user %>
+                <% if login_user.present? %>
+                  <button class="nav-button dropdown-toggle" type="button" id="header-menu" data-bs-toggle="dropdown" aria-expanded="false">
+                    <%= login_user.email %>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="header-menu">
+                    <li><a href="/user/edit" class="dropdown-item" type="button">ユーザー情報変更</a></li>
+                    <li>
+                      <form action="/sign_out" method="post">
+                        <button class="dropdown-item">ログアウト</button>
+                      </form>
+                  </ul>
+                <% else %>
+                  <button class="nav-button dropdown-toggle" type="button" id="header-menu" data-bs-toggle="dropdown" aria-expanded="false">ゲスト</button>
+                  <ul class="dropdown-menu" aria-labelledby="header-menu">
+                    <li><a href="/sign_in" class="dropdown-item" type="button">ログイン</a></li>
+                    <li><a href="/sign_up" class="dropdown-item" type="button">新規登録</a></li>
+                  </ul>
+                <% end %>
               </div>
             </li>
           </ul>

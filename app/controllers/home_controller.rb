@@ -8,6 +8,13 @@ class HomeController < ApplicationController
     end
     @forms = Form.where(user_id: user.id).order(seq: :asc)
   end
+  def me
+    user = get_authenticated_user
+    if user.nil?
+      raise StandardError.new("認証されていません。")
+    end
+    return render json: {user: user.email}, status: :ok
+  end
   def download
     # TEMP ファイルパスに応じたファイルの取得確認
     path = Rails.root.join('storage', 'uploads', '1a8f78cc-916e-4d5e-86cf-7a7c613ab6f0.xlsx')

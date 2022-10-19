@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   include Auth
+  include SignInService
   def new
     token = get_authenticated_user()
     if token.present?
@@ -8,14 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    token = make_token_if_authenticated(params[:email], params[:password])
-    if token == nil
-      flash[:danger] = 'メールアドレスかパスワードが間違っています。'
-      return redirect_to sign_in_path
-    end
-    # JWTをCookieにセット
-    cookies[:token] = token
-    return redirect_to root_path
+    sign_in(params[:email], params[:password])
   end
 
   def delete

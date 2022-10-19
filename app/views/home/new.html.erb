@@ -1,20 +1,19 @@
-<% content_for :page, "登録帳票一覧" %>
+<% content_for :page, "登録帳票テンプレート一覧" %>
 <% content_for :page_right_content do  %>
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="register">登録</button>
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="register">帳票テンプレート登録</button>
 <% end %>
 <div class="container">
   <table class="table">
     <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">帳票名称</th>
+      <th scope="col">名称</th>
       <th scope="col">説明</th>
       <th scope="col">最終更新日時</th>
       <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-<!--      TODO 1件も存在しない時-->
       <% @forms.each do |form| %>
         <tr>
           <th scope="row">
@@ -42,7 +41,6 @@
       <% end %>
     </tbody>
   </table>
-  <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -52,7 +50,6 @@
         </div>
         <div class="container">
           <%= form_with method: :post, url: "form/create", class: "modal_form" do |form| %>
-          <%#= form_with method: :post, action: "/form/create", class: "modal_form" do |form| %>
             <div class="modal-body">
               <div id="error-message" class="d-none alert alert-danger" role="alert"></div>
               <div class="row mb-3">
@@ -80,7 +77,6 @@
       </div>
     </div>
   </div>
-  <!-- Delete Modal -->
   <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modal-label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

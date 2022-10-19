@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b299f02-44ad-409e-8618-18d19ec2fae6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/password_resets/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/password_resets/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +175,7 @@
       <updated>1664775260713</updated>
       <workItem from="1664775262399" duration="4556000" />
       <workItem from="1664780331272" duration="38918000" />
-      <workItem from="1665306462032" duration="120955000" />
+      <workItem from="1665306462032" duration="122151000" />
     </task>
     <servers />
   </component>

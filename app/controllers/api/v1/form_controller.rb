@@ -18,6 +18,10 @@ module Api
         # TODO: エラーハンドリング
         return render json: {base64: base64}, status: :ok
       end
+
+      private
+      # https://github.com/NoamB/sorcery/issues/724
+      def form_authenticity_token; end
     end
   end
 end

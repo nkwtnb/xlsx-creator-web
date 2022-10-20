@@ -1,7 +1,6 @@
 module SignInService
   include Auth
   def sign_in(email, password)
-    puts "Hello, sign in"
     token = make_token_if_authenticated(email, password)
     if token == nil
       flash.now[:danger] = 'メールアドレスかパスワードが間違っています。'

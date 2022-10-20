@@ -17,7 +17,6 @@ class FormController < ApplicationController
 
   def update
     begin
-      puts params
       uploaded_file = params[:form_file]
       description = params[:description]
       selected_seq = params[:selected_seq]

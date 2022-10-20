@@ -1,12 +1,14 @@
 <% content_for(:page, "ユーザー新規登録") %>
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="offset-4 col-4">
       <div class="container d-flex justify-content-center">
         <%= form_with url: "/sign_up", method: :post do |form| %>
-          <% flash.each do |message_type, message| %>
-            　　<div class="alert alert-<%= message_type %>"><%= message %></div>
-          <% end %>
+          <div class="row mb-3">
+            <% flash.each do |message_type, message| %>
+              　　<div class="alert alert-<%= message_type %>"><%= message %></div>
+            <% end %>
+          </div>
           <div class="row mb-3">
             <label for="exampleFormControlInput1" class="form-label">メールアドレス</label>
             <%= form.text_field :email, class: 'form-control'%>

@@ -1,0 +1,43 @@
+<% content_for :page, "設定" %>
+<div class="container">
+  <div class="row mb-4">
+    <div class="offset-4 col-4">
+      <h3>メールアドレスの変更</h3>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="offset-4 col-4">
+      <% flash.each do |message_type, message| %>
+        　　<div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= form_with url: "/settings", data: { turbo: false }, method: :post, local: true do |f| %>
+        <div class="mb-3">
+          <%= f.label "_email", "現在のメールアドレス" %>
+          <div>
+            <%= f.email_field "_email", value: @authenticated_user.email, class: 'form-control', disabled: true%>
+          </div>
+        </div>
+        <div class="mb-3 form-group">
+          <%= f.label :email, "変更後メールアドレス" %>
+          <%= f.email_field :email, required: true, class: 'form-control' %>
+        </div>
+        <div class=" mb-3 align-content-right">
+          <%= f.submit "変更", class: 'w-100 btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="offset-md-4 col-md-4 col">
+      <h3>アカウントの削除</h3>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="offset-md-4 col-4">
+      <%= form_with url: "/settings", data: { turbo: false }, method: :delete, local: true do |f| %>
+        <%= f.submit "アカウント削除", class: 'w-100 btn btn-outline-danger' %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

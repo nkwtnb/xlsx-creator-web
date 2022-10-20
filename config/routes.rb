@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post "/mail", to: "mail#create"
   get '/usage', to: "usage#new"
   get '/terms', to: "terms#new"
+  get '/settings', to: "settings#new"
+  post '/settings', to: "settings#update"
+  delete '/settings', to: "settings#delete"
   scope :form do
     post :create, to: "form#create"
     post :update, to: "form#update"

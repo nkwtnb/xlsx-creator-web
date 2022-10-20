@@ -5,7 +5,7 @@
       <%= form_with url: password_resets_path, data: { turbo: false }, method: :post, local: true do |f| %>
         <div class="mb-3 form-group">
           <%= f.label :email, User.human_attribute_name(:email) %>
-          <%= f.email_field :email, class: 'form-control' %>
+          <%= f.email_field :email, class: 'form-control', required: true %>
         </div>
         <div class=" mb-3 align-content-right">
           <%= f.submit "送信", class: 'w-100 btn btn-success' %>

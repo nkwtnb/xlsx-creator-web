@@ -4,9 +4,9 @@ class SettingsController < ApplicationController
     @authenticated_user = get_authenticated_user
   end
   def update
-    authenticated_user = get_authenticated_user
+    @authenticated_user = get_authenticated_user
     begin
-      user = User.find_by(email: authenticated_user.email)
+      user = User.find_by(email: @authenticated_user.email)
       user.email = params[:email]
       user.save!
     rescue => e

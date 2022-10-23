@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="mb-3 form-group">
-          <%= f.label :email, "変更後メールアドレス" %>
+          <%= f.label :email, "変更後のメールアドレス" %>
           <%= f.email_field :email, required: true, class: 'form-control' %>
         </div>
         <div class=" mb-3 align-content-right">
@@ -35,9 +35,28 @@
   <div class="row mb-4">
     <div class="offset-md-4 col-4">
       <%= form_with url: "/settings", data: { turbo: false }, method: :delete, local: true do |f| %>
-        <%= f.submit "アカウント削除", class: 'w-100 btn btn-outline-danger' %>
+        <%= f.button "アカウント削除", type: "button", class: 'w-100 btn btn-danger', data: {"bs-toggle": "modal", "bs-target": "#delete-modal"}  %>
+        <%#= f.button "削除", type: "button", class: "delete-button btn btn-danger", data: {"bs-toggle": "modal", "bs-target": "#delete-modal"} %>
       <% end %>
     </div>
   </div>
-
+</div>
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="delete-modal-label">アカウント削除</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        本当にアカウントを削除しますか？
+      </div>
+      <div class="modal-footer">
+        <%= form_with url: "/settings", data: { turbo: false }, method: :delete, local: true do |f| %>
+          <%= f.submit "削除", class: "btn btn-danger"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

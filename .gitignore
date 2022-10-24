@@ -36,3 +36,4 @@
 /uploads
 .env
 /**/templates/*
+/.idea/workspace.xml

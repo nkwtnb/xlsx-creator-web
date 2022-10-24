@@ -5,23 +5,25 @@ class Form < ApplicationRecord
     attribute[:seq] = get_next_sequence(attribute[:user_id])
     super
   end
-  def update_attributes(template_file, description)
+  def update_attributes(template_file, description, old_file_name = nil)
     self.description = description
     if template_file.present?
-      set_file_attributes(template_file)
+      file_name = upload_file_to_server(template_file, old_file_name)
+      set_file_attributes(template_file, file_name)
     end
   end
 
   private
-  def upload_file_to_server(template_file)
+  def upload_file_to_server(template_file, old_file_name = nil)
     file_name = SecureRandom.uuid + ".xlsx"
-    File.open(Rails.root.join('resources', 'xlsx-creator', 'templates', file_name), 'w') do |file|
-      file.write(template_file.read)
+    if old_file_name.present?
+      file_name = old_file_name
     end
+    storage = Storage.new
+    storage.save(template_file.read, file_name)
     return file_name
   end
-  def set_file_attributes(template_file)
-    file_name = upload_file_to_server(template_file)
+  def set_file_attributes(template_file, file_name)
     self.original_name = template_file.get_name
     self.file_name = file_name
   end

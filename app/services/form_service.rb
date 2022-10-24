@@ -1,6 +1,7 @@
 module FormService
   include Auth
   include DomainFormService
+
   def form_create_service(uploaded_file, description)
     # ユーザー情報取得
     user = get_authenticated_user
@@ -28,7 +29,22 @@ module FormService
     end
     # DB登録
     form = Form.where(user_id: user.id, seq: seq).first
-    form.update_attributes(template_file, description)
+    old_file_name = form.file_name
+    form.update_attributes(template_file, description, old_file_name)
     form.save!
+  end
+
+  def form_delete_service(seq)
+    user = get_authenticated_user
+    if user.nil?
+      return redirect_to sign_in_path
+    end
+    form = Form.where(user_id: user.id, seq: seq).first
+    if form.nil?
+      return render json: {message: "ID：#{seq} の帳票テンプレートが存在しません"}, status: :bad_request
+    end
+    storage = Storage.new
+    storage.delete(form.file_name)
+    form.destroy!
   end
 end

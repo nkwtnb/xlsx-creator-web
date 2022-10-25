@@ -1,7 +1,6 @@
 class SettingsController < ApplicationController
   include Auth
   def new
-    puts "new"
     @authenticated_user = get_authenticated_user
     if @authenticated_user.nil?
       return redirect_to sign_in_path

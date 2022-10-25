@@ -40,6 +40,7 @@ gem "dotenv-rails"
 gem "rack-cors"
 gem "commonmarker"
 gem 'sorcery'
+gem 'google-cloud-storage'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]

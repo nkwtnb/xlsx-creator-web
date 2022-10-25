@@ -34,7 +34,7 @@ module Auth
     user_id = decoded_token.first['sub']
     # user_idからユーザーを検索
     #TODO user_idで取得できなかった場合
-    User.find(user_id)
+    User.find_by(id: user_id)
   end
 
   def get_authenticated_user_from_api(params)

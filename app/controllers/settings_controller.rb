@@ -24,8 +24,12 @@ class SettingsController < ApplicationController
     begin
       user = get_authenticated_user
       user.destroy!
+      storage = Storage.new
+      forms = Form.where(user_id: user.id)
+      forms.each do |f|
+        storage.delete(f.file_name)
+      end
       cookies.delete :token
-      # TODO 登録した帳票テンプレートの削除
       flash[:success] = "アカウントを削除しました"
       return redirect_to sign_up_path
     rescue ActiveRecord::RecordInvalid => e

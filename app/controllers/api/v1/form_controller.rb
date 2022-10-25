@@ -17,6 +17,7 @@ module Api
         data = params[:data]
         form = Form.where(user_id: user.id, seq: form_id).first
         if form.nil?
+
           return render json: {message: "指定の帳票ID: #{form_id} に対応する帳票が存在しません。"}, status: :bad_request
         end
         parsed_data = JSON.generate(data.to_json)

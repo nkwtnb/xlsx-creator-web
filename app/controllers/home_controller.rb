@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   include Auth
-  include FormService
   def new
     user = get_authenticated_user
     if user.nil?

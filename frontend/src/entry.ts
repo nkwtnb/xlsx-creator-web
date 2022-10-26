@@ -1,16 +1,3 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import {Hello} from "./components/Hello";
-// (() => {
-//   window.addEventListener("load", (e) => {
-//     ReactDOM.render(
-//       <React.StrictMode>
-//         <Hello></Hello>
-//       </React.StrictMode>
-//       , document.getElementById("root")
-//     );
-//   });
-// })();
 import "./modal";
 import "./registerButton";
 import "./updateButton";
@@ -22,14 +9,11 @@ import {clearErrorMessage, setErrorMessage} from "./modal";
 
 type UPDATE_TYPE = "REGISTER" | "UPDATE"
 
-console.log("Hello, entry.ts");
-
 let selectedIndex = -1;
 export const getSelectedIndex = (): number => {
   return selectedIndex;
 }
 window.addEventListener("load", (e) => {
-  console.log("getselected index");
   const buttons = Array.from(document.querySelectorAll(".delete-button"));
   buttons.forEach((element) => {
     element.addEventListener("click", (e) => {
@@ -87,14 +71,6 @@ export const submit = async (type: UPDATE_TYPE, token: string, description: stri
     }
   });
 }
-
-const validate = (form: HTMLFormElement) => {
-  console.log(form);
-  if (form.files.length === 0) {
-    return false;
-  }
-  return true;
-}
 export const toggleFormEnabled = (isUpdate: boolean) => {
   const elements: HTMLInputElement[] = Array.from(document.querySelectorAll(".show-only-update-form"));
   elements.forEach(element => {
@@ -102,7 +78,6 @@ export const toggleFormEnabled = (isUpdate: boolean) => {
   });
 }
 export const toggleStatus = (type: UPDATE_TYPE) => {
-  console.log("toggle");
   const showOnlyRegisterElements = document.querySelectorAll(".show-only-register");
   const showOnlyUpdateElements = Array.from(document.querySelectorAll(".show-only-update"));
 

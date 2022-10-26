@@ -2,7 +2,6 @@ import {getParam, getToken, toggleStatus} from "./entry";
 import {submit} from "./entry";
 
 window.addEventListener("load", (e) => {
-  console.log("updateButton");
   const buttons = Array.from(document.querySelectorAll(".edit-form"));
   let clickedIndex = 0;
   buttons.forEach((element) => {

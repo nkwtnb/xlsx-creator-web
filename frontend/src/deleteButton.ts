@@ -1,7 +1,5 @@
 import {getSelectedIndex, getToken} from "./entry";
-console.log ("delete");
 const submit = (token: string, index: number) => {
-  console.log("submit", token, index);
   const postData = new FormData();
   postData.append("selected_seq", index.toString());
   fetch("/form/delete", {
@@ -16,8 +14,6 @@ const submit = (token: string, index: number) => {
       location.reload();
       return;
     }
-    console.log(res.status);
-    console.log(await res.json());
   });
 }
 window.addEventListener("load", (e) => {

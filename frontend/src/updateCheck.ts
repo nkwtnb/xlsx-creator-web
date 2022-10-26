@@ -4,5 +4,4 @@ window.addEventListener("load", (e) => {
   updateCheck.addEventListener("change", (e: any) => {
     toggleFormEnabled(e.target.checked)
   });
-  console.log("updateCheck");
 })

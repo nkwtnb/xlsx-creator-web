@@ -4,7 +4,7 @@ class Storage
   def initialize
     @storage = Google::Cloud::Storage.new(
       project_id: ENV["RAILS_GCS_PROJECT"],
-      credentials: Rails.root.join("credentials.json").to_s
+      credentials: JSON.parse(Base64.decode64(ENV["RAILS_GCS_CREDENTIALS"]))
     )
     @bucket = @storage.bucket(ENV["RAILS_GCS_BUCKET"])
   end

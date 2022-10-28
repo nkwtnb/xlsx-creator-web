@@ -1,6 +1,10 @@
 class Form < ApplicationRecord
   belongs_to :user
   attribute :file
+  validates :original_name, presence: true
+  validates :file_name, presence: true
+  validates :seq, presence: true
+
   def initialize(attribute)
     attribute[:seq] = get_next_sequence(attribute[:user_id])
     super

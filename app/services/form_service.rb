@@ -29,6 +29,9 @@ module FormService
     end
     # DB登録
     form = Form.where(user_id: user.id, seq: seq).first
+    if form.nil?
+      raise StandardError.new("対象のFormが存在しません")
+    end
     old_file_name = form.file_name
     form.update_attributes(template_file, description, old_file_name)
     form.save!

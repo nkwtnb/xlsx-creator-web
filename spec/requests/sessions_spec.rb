@@ -18,6 +18,7 @@ RSpec.describe "Sessions", type: :request do
         user = service.get_authenticated_user
         expect(user.email).to eq "test@example.com"
         expect(@response.cookies["token"]).to be_present
+        expect(response).to have_http_status(302)
         expect(response).to redirect_to root_path
       end
     end
@@ -45,7 +46,7 @@ RSpec.describe "Sessions", type: :request do
   describe "POST /sign_out" do
     let!(:user) {FactoryBot.create(:user) }
     context "ログイン済み" do
-      it 'cookies[token]がクリアされる' do
+      it 'cookies[token]がクリアされて、リダイレクトされる' do
         post sign_in_path, params: {
           email: "test@example.com",
           password: "password"
@@ -53,11 +54,17 @@ RSpec.describe "Sessions", type: :request do
         expect(@response.cookies["token"]).to be_present
         post sign_out_path
         expect(@response.cookies["token"]).to be_nil
+        expect(response).to have_http_status(302)
+        expect(response).to redirect_to root_path
       end
     end
     context "未ログイン" do
-      it 'エラー' do
+      it 'エラーにならず、リダイレクトされる' do
+        expect(cookies["token"]).to be_nil
         post sign_out_path
+        expect(@response.cookies["token"]).to be_nil
+        expect(response).to have_http_status(302)
+        expect(response).to redirect_to root_path
       end
     end
   end

@@ -1,19 +1,21 @@
 require 'rails_helper'
 
-include Auth
-
 RSpec.describe "Sessions", type: :request do
   describe "POST /sign_in" do
     let!(:user) {FactoryBot.create(:user) }
+    let(:dummy) { Class.new(ApplicationController) { include Auth }}
     context "正しいemail, password" do
       it 'ログインできる' do
-        user = get_authenticated_user
+        service = dummy.new
+        # テスト環境のcookiesを使用するようにモック
+        allow(service).to receive(:cookies).and_return(cookies)
+        user = service.get_authenticated_user
         expect(user).to be_nil
         post sign_in_path, params: {
           email: "test@example.com",
           password: "password"
         }
-        user = get_authenticated_user
+        user = service.get_authenticated_user
         expect(user.email).to eq "test@example.com"
         expect(@response.cookies["token"]).to be_present
         expect(response).to redirect_to root_path

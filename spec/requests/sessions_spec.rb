@@ -68,4 +68,30 @@ RSpec.describe "Sessions", type: :request do
       end
     end
   end
+  describe "POST /sign_up" do
+    let!(:user) { FactoryBot.create(:user) }
+    context "emailが重複している" do
+      it 'エラーになり、登録できない' do
+        post sign_up_path, params: {
+          email: "test@example.com",
+          password: "password",
+          password_confirmation: "password"
+        }
+        expect(flash[:danger]).to eq "バリデーションに失敗しました: メールアドレスはすでに存在します"
+        expect(response).to have_http_status(422)
+      end
+    end
+    context "emailが重複していない" do
+      it '登録できる' do
+        post sign_up_path, params: {
+          email: "new_user@example.com",
+          password: "password",
+          password_confirmation: "password"
+        }
+        expect(flash[:danger]).to be_nil
+        expect(response).to have_http_status(302)
+        expect(response).to redirect_to root_path
+      end
+    end
+  end
 end

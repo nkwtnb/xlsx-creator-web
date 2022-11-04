@@ -26,8 +26,6 @@ module Auth
     begin
       decoded_token = JWT.decode(token, rsa_private, true, { algorithm: 'RS256' })
     rescue StandardError => e
-      p e.message
-      p "user decode failed"
       return nil
     end
     # subからユーザーIDを取得

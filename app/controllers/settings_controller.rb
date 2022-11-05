@@ -9,6 +9,9 @@ class SettingsController < ApplicationController
   def update
     @authenticated_user = get_authenticated_user
     begin
+      if @authenticated_user.nil?
+        raise StandardError.new("認証されていません")
+      end
       user = User.find_by(email: @authenticated_user.email)
       user.email = params[:email]
       user.save!

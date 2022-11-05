@@ -14,7 +14,11 @@
         <div class="mb-3">
           <%= f.label "_email", "現在のメールアドレス" %>
           <div>
-            <%= f.email_field "_email", value: @authenticated_user.email, class: 'form-control', disabled: true%>
+            <% if @authenticated_user.nil? %>
+              <%= f.email_field "_email", value: "", class: 'form-control', disabled: true%>
+            <% else %>
+              <%= f.email_field "_email", value: @authenticated_user.email, class: 'form-control', disabled: true%>
+            <% end %>
           </div>
         </div>
         <div class="mb-3 form-group">

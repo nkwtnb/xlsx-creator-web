@@ -40,11 +40,11 @@ module FormService
   def form_delete_service(seq)
     user = get_authenticated_user
     if user.nil?
-      return redirect_to sign_in_path
+      raise StandardError.new("認証されていません")
     end
     form = Form.where(user_id: user.id, seq: seq).first
     if form.nil?
-      return render json: {message: "ID：#{seq} の帳票テンプレートが存在しません"}, status: :bad_request
+      raise StandardError.new("ID：#{seq} の帳票テンプレートが存在しません")
     end
     storage = Storage.new
     storage.delete(form.file_name)

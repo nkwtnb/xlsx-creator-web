@@ -12,6 +12,21 @@ RSpec.describe "Settings", type: :request do
     context "認証済み" do
       let!(:base_user) {FactoryBot.create(:user) }
       let!(:exists_user) {FactoryBot.create(:user, email: "exists@example.com") }
+      context "メールアドレス未入力" do
+        it "エラーになること" do
+          expect(base_user.email).to eq "test@example.com"
+          post sign_in_path, params: {
+            email: "test@example.com",
+            password: "password"
+          }
+          # メールアドレスを空白に設定
+          post settings_path, params: {
+            email: ""
+          }
+          expect(response).to have_http_status(422)
+          expect(flash[:danger]).to eq ["メールアドレスは必須です"]
+        end
+      end
       context "存在するメールアドレス" do
         it "エラーになること" do
           expect(base_user.email).to eq "test@example.com"
@@ -24,7 +39,7 @@ RSpec.describe "Settings", type: :request do
             email: "exists@example.com"
           }
           expect(response).to have_http_status(422)
-          expect(flash[:danger]).to eq "バリデーションに失敗しました: メールアドレスはすでに存在します"
+          expect(flash[:danger]).to eq ["メールアドレスはすでに存在します"]
         end
       end
       context "存在しないメールアドレス" do

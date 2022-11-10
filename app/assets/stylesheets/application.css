@@ -83,3 +83,6 @@ body {
 .table tbody th, .table tbody td {
     word-break: break-all;
 }
+ul {
+    margin-bottom: 0;
+}

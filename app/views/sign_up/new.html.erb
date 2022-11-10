@@ -5,8 +5,19 @@
       <div class="container d-flex justify-content-center">
         <%= form_with url: "/sign_up", method: :post do |form| %>
           <div class="row mb-3">
-            <% flash.each do |message_type, message| %>
-              　　<div class="alert alert-<%= message_type %>"><%= message %></div>
+            <% if flash[:danger].present? %>
+              <div class="alert alert-danger">
+                <ul>
+                  <% flash[:danger].each do |m| %>
+                    <li><%= m %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <% if flash[:success].present? %>
+              <div class="alert alert-success">
+                <%= flash[:success] %>
+              </div>
             <% end %>
           </div>
           <div class="row mb-3">

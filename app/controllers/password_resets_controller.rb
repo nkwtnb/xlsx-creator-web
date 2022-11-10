@@ -16,6 +16,10 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      flash[:danger] = ['パスワードを入力してください']
+      return redirect_to edit_password_reset_path, id: params[:id]
+    end
     @token = params[:id]
     @user = User.load_from_reset_password_token(params[:id])
 
@@ -26,8 +30,8 @@ class PasswordResetsController < ApplicationController
       flash[:success] = "パスワードを変更しました"
       redirect_to sign_in_path
     else
-      flash.now[:danger] = 'パスワードを変更できませんでした'
-      render action: 'edit'
+      flash[:danger] = @user.errors.full_messages
+      redirect_to edit_password_reset_path, id: params[:id]
     end
   end
 end

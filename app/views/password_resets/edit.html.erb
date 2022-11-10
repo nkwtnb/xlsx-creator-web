@@ -1,29 +1,47 @@
+<% content_for(:page, "パスワードリセット") %>
 <%= form_for @user,  data: { turbo: false }, :url => password_reset_path(@token), :html => {:method => :put} do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-4">
+        <% if flash[:danger].present? %>
+          <div class="alert alert-danger">
+            <ul>
+                <% flash[:danger].each do |m| %>
+                  <li><%= m %></li>
+                <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= @user.email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-4">
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email, value: @user.email, class: "form-control", disabled: true %>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center mt-3">
+        <div class="col-md-4">
+          <div class="field">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center mt-3">
+        <div class="col-md-4">
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center mt-3">
+        <div class="col-md-4">
+          <%= f.submit "更新", class: "btn btn-success w-100 mt-3"%>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>

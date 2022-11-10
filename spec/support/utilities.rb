@@ -5,8 +5,6 @@ module Utilities
       password: "password"
     }
     if response.status == 422
-      puts flash.to_hash
-      puts response.message
       raise StandardError.new("ログインエラー")
     end
   end

@@ -8,7 +8,6 @@ class FormController < ApplicationController
       form_create_service(uploaded_file, description)
       return head :ok
     rescue => e
-      p e.message
       return render json: {
         message: e.message
       }, status: :bad_request
@@ -24,7 +23,6 @@ class FormController < ApplicationController
       form_update_service(uploaded_file, description, selected_seq, is_update_form)
       return head :ok
     rescue => e
-      p e.message
       return render json: {
         message: e.message
       }, status: :bad_request
@@ -36,7 +34,6 @@ class FormController < ApplicationController
       form_delete_service(params[:selected_seq])
       return head :ok
     rescue => e
-      p e.message
       return render json: {
         message: e.message
       }, status: :bad_request

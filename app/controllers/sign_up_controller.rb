@@ -18,7 +18,6 @@ class SignUpController < ApplicationController
       user.save!
       sign_in(params[:email], params[:password])
     rescue => e
-      puts e.message
       flash.now[:danger] = e.message
       render :new, status: :unprocessable_entity
     end

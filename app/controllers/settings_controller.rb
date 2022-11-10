@@ -15,8 +15,11 @@ class SettingsController < ApplicationController
       user = User.find_by(email: @authenticated_user.email)
       user.email = params[:email]
       user.save!
+    rescue ActiveRecord::RecordInvalid
+      flash[:danger] = user.errors.full_messages
+      return render :new, status: :unprocessable_entity
     rescue => e
-      flash[:danger] = e.message
+      flash[:danger] = [e.message]
       return render :new, status: :unprocessable_entity
     end
     flash[:success] = "メールアドレスを変更しました"

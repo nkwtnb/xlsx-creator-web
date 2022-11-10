@@ -77,7 +77,7 @@ RSpec.describe "Sessions", type: :request do
           password: "password",
           password_confirmation: "password"
         }
-        expect(flash[:danger]).to eq "バリデーションに失敗しました: メールアドレスはすでに存在します"
+        expect(flash[:danger]).to eq ["メールアドレスはすでに存在します"]
         expect(response).to have_http_status(422)
       end
     end

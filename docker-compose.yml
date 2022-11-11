@@ -1,0 +1,23 @@
+version: '3.0'
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=xlsx_creator_db
+      - MYSQL_USER=${RAILS_DATABASE_USERNAME}
+      - MYSQL_PASSWORD=${RAILS_DATABASE_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${RAILS_DATABASE_PASSWORD}
+    ports:
+      - "3306:3306"
+#    volumes:
+#      - ./tmp/db:/var/lib/mysql
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 8080 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db

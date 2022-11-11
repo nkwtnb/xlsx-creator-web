@@ -28,12 +28,12 @@ class SettingsController < ApplicationController
   def delete
     begin
       user = get_authenticated_user
-      user.destroy!
       storage = Storage.new
       forms = Form.where(user_id: user.id)
       forms.each do |f|
         storage.delete(f.file_name)
       end
+      user.destroy!
       cookies.delete :token
       flash[:success] = "アカウントを削除しました"
       return redirect_to sign_up_path

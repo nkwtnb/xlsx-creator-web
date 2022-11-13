@@ -10,7 +10,6 @@ module.exports = {
     entry: {
         "common/index": "./frontend/src/common/index.ts",
         "home/index": './frontend/src/entry.ts',
-        "sessions/index": './frontend/src/foo.js',
     },
     output: {
         path: path.resolve(__dirname, "app", "assets","javascripts"),

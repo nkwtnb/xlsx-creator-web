@@ -913,6 +913,25 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="maxminddb (vbundled(0.1.22)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/maxminddb-0.1.22/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/maxminddb-0.1.22/spec" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/maxminddb-0.1.22/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/maxminddb-0.1.22/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/maxminddb-0.1.22/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="memoist (vbundled(0.16.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

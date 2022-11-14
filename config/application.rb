@@ -20,5 +20,7 @@ module ExcelCreator
     # config.eager_load_paths << Rails.root.join("extras")
     config.middleware.use ActionDispatch::Cookies
     config.i18n.default_locale = :ja
+    config.x.maxminddb = MaxMindDB.new("#{Rails.root}/db/GeoLite2-Country.mmdb")
+    config.middleware.use Rack::Attack
   end
 end

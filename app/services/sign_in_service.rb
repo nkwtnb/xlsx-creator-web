@@ -7,7 +7,8 @@ module SignInService
       return render :new, status: :unprocessable_entity
     end
     # JWTをCookieにセット
-    cookies[:token] = token
+    # ローカルではsecure: falseでテストしたい為、Cloud Runにデプロイする際に環境変数でtrueとする
+    cookies[:token] = {value: token, httponly: true, secure: ENV.fetch("RAILS_IS_DEPLOYED") == "true"}
     return redirect_to root_path
   end
 end

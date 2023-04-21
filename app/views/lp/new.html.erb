@@ -1,0 +1,46 @@
+<% content_for(:lp) %>
+<div class="position-relative">
+  <div class="title-header py-5 h-25">
+    <div class="text-center">
+      <p class="py-2">
+        <h1>XLSX Creator</h1>
+      </p>
+      <p class="py-2">
+        <h4 class="fw-bold">テンプレートを登録して、入力したいデータをリクエストするだけ。</h4>
+      </p>
+    </div>
+  </div>
+  <div class="d-flex text-white">
+    <div class="flex-basis-50 fs-5 fw-bold d-flex align-items-center justify-content-center">
+      <div>
+        <div class="text-center pt-5">
+          <p>データは溜まっているけど、帳票作成機能が無い…そんなサービスと相性◎</p>
+          <p>もちろん作成した帳票やデータはサーバーに保存されません。</p>
+        </div>
+        <div class="text-center pt-5">
+          <p>レスポンスはbase64エンコーディングされて返却される為、</p>
+          <p>デコードすればファイルがDLできます。</p>
+        </div>
+        <div class="text-center pt-5">
+          <div class="d-inline-block">
+            <a href="/sign_in" class="text-decoration-none shadow rounded-2 bg-transparent text-white border px-4 py-2 fw-bold">ログイン</a>
+          </div>
+          <div class="d-inline-block ms-5">
+            <a href="/sign_up" class="text-decoration-none shadow rounded-2 bg-base text-white border-0 px-4 py-2 fw-bold">新規登録</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex-basis-50 fs-5 overflow-auto">
+      <div class="text-center mt-5">
+        <iframe
+          src="https://carbon.now.sh/embed/RAarb29p1M1JWV5HtmyZ"
+          style="width: 800px; height: 525px; border:0; transform: scale(1); "
+          sandbox="allow-scripts allow-same-origin">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-fixed top-0 start-0 w-100 h-100 bg-half-transparent" style="z-index: -1;"/>
+</div>

@@ -36,6 +36,5 @@
 /uploads
 .env
 /**/templates/*
-.idea/**/workspace.xml
-.idea/**/tasks.xml
+.idea/
 credentials.json

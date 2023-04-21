@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/settings', to: "settings#new"
   post '/settings', to: "settings#update"
   delete '/settings', to: "settings#delete"
+  get 'lp/', to: "lp#new"
   scope :form do
     post :create, to: "form#create"
     post :update, to: "form#update"

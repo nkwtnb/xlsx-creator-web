@@ -16,6 +16,12 @@
 body {
     background-color: #F0F0F0;
 }
+.bg-half-transparent {
+    background-color: #14592fde;
+}
+.bg-base {
+    background-color: #14592F;
+}
 .title-header {
     background-color: #14592F;
     color: white;
@@ -85,4 +91,8 @@ body {
 }
 ul {
     margin-bottom: 0;
+}
+
+.flex-basis-50 {
+    flex-basis: 50%;
 }

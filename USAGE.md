@@ -53,7 +53,8 @@ POST
 ```json
 {
   "formId": "1",
-    "data": {
+  "pdf": false,
+  "data": {
     "cell": {
       "field1": {
         "value": "hello"
@@ -136,6 +137,8 @@ await fetch("https://xlsx-creator.com/api/v1/form", {
     body: JSON.stringify({
         // form id you want to create
         "formId": "1",
+        // set true if you want to convert excel to pdf
+        "pdf": false,
         // json format data you want to input
         "data": {
             "cell": {
